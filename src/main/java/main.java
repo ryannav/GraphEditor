@@ -7,9 +7,7 @@ import guru.nidi.graphviz.engine.Graphviz;
 import guru.nidi.graphviz.model.*;
 import guru.nidi.graphviz.parse.Parser;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.lang.reflect.Array;
 import java.util.*;
 
@@ -36,10 +34,32 @@ public class main {
         Set<String> verSet = new HashSet<>(list);
         list.clear();
         list.addAll(verSet);
-        System.out.println(verSet.toString());
+        System.out.print(verSet.toString());
         System.out.println("Number of vertexes in your graph: " + verSet.size());
         System.out.println("Number of edges in your graph: " + g.edges().size());
         System.out.println(g.toString());
+        return true;
+    }
+
+    public boolean outputGraph(String filepath){
+        try{
+            FileWriter file = new FileWriter(filepath);
+            PrintWriter output = new PrintWriter(file);
+            output.print("Your vertexes: ");
+            List<String> list = new ArrayList<String> ();
+            g.nodes().forEach(node -> list.add(node.name().toString()));
+            Set<String> verSet = new HashSet<>(list);
+            list.clear();
+            list.addAll(verSet);
+            output.print(verSet.toString() + "\n");
+            output.println("Number of vertexes in your graph: " + verSet.size());
+            output.println("Number of edges in your graph: " + g.edges().size());
+            output.println(g.toString());
+            output.close();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         return true;
     }
 
@@ -74,14 +94,25 @@ public class main {
            g.add(mutNode(srcLabel).addLink(mutNode(dstLabel)));
 
         }
-       /* try {
-            // Render the graph as an image (e.g., PNG)
-            Graphviz.fromGraph(g).render(Format.PNG).toFile(new File("yourgraph.png"));
-
-            System.out.println("Graph visualization saved to " + "yourgraph.png");
+        return true;
+    }
+    public boolean outputDOTGraph(String path){
+        try{
+            Graphviz.fromGraph(g).render(Format.DOT).toFile(new File(path));
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
+        }
+        return true;
+    }
+    public boolean outputGraphics(String path, String format){
+        if(format == "png" || format == "PNG" || format ==".png" || format == ".PNG"){
+            try{
+            Graphviz.fromGraph(g).render(Format.PNG).toFile(new File(path));   //this saves the file to the png
+                } catch (IOException e) {
+            e.printStackTrace();
+        }}else{
+            return false;
+        }
         return true;
     }
 

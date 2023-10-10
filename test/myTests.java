@@ -6,10 +6,17 @@ public class myTests {
 
 
     @Test
-    public void test1(){        //this test will cover feature 1 in the project
+    public void testfeatur1pt1(){        //this test will cover feature 1 in the project
         main s = new main();
         s.parseGraph("/test1.dot");
         assertEquals(true, s.tostring());
+    }
+
+    @Test
+    public void testfeatur1pt2(){
+        main s = new main();
+        s.parseGraph("/test1.dot");
+        assertEquals(true, s.outputGraph("outputs/testf1out.txt"));
     }
     @Test
     public void testfeature2pt1(){                        //tests the single tostring for graphs
@@ -33,5 +40,20 @@ public class myTests {
         s.parseGraph("/test1.dot");
         assertEquals(true, s.addEdge("B","C"));
         s.tostring();
+    }
+    @Test
+    public void testfeature4part1(){
+        main s = new main();
+        s.parseGraph("/test1.dot");
+        s.addEdge("B","C");
+        assertEquals(true, s.outputDOTGraph("outputs/test1Output.dot"));
+    }
+
+    @Test
+    public void testfeature4part2(){
+        main s = new main();
+        s.parseGraph("/test1.dot");
+        s.addEdge("B","C");
+        assertEquals(true, s.outputGraphics("outputs/test2Output.png", "png"));
     }
 }
