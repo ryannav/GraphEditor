@@ -26,4 +26,12 @@ public class myTests {
         assertEquals(true, s.addNodes(j));
         s.tostring();
     }
+
+    @Test
+    public void testfeature3(){
+        main s = new main();
+        s.parseGraph("/test1.dot");
+        assertEquals(true, s.addEdge("B","C"));
+        s.tostring();
+    }
 }
