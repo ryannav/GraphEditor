@@ -27,40 +27,37 @@ public class main {
         return true;
     }
 
-    public boolean tostring(){
-        System.out.println("\nYour vertexes: ");
-        List<String> list = new ArrayList<String> ();
+    public String tostring(){
+        String verts = "";
+        List<String> list = new ArrayList<String> ();    //puts vertex names into a list then a hashset
         g.nodes().forEach(node -> list.add(node.name().toString()));
         Set<String> verSet = new HashSet<>(list);
         list.clear();
         list.addAll(verSet);
-        System.out.print(verSet.toString());
-        System.out.println("Number of vertexes in your graph: " + verSet.size());
-        System.out.println("Number of edges in your graph: " + g.edges().size());
-        System.out.println(g.toString());
-        return true;
+        String f = "Your vertexes: " + verSet.toString() + "\nNumber of vertexes in your graph: " + verSet.size()
+                + "\nNumber of edges in your graph: " + g.edges().size() + "\n" + g.toString();
+        System.out.println(f);
+        return f;
     }
 
-    public boolean outputGraph(String filepath){
+    public String outputGraph(String filepath){        //both functions are almost the same except one prints to file
         try{
             FileWriter file = new FileWriter(filepath);
-            PrintWriter output = new PrintWriter(file);
-            output.print("Your vertexes: ");
-            List<String> list = new ArrayList<String> ();
+            PrintWriter output = new PrintWriter(file);     //same code as the toString except it writes it into a txt file
+            String verts = "";
+            List<String> list = new ArrayList<String> ();    //puts vertex names into a list then a hashset
             g.nodes().forEach(node -> list.add(node.name().toString()));
             Set<String> verSet = new HashSet<>(list);
             list.clear();
             list.addAll(verSet);
-            output.print(verSet.toString() + "\n");
-            output.println("Number of vertexes in your graph: " + verSet.size());
-            output.println("Number of edges in your graph: " + g.edges().size());
-            output.println(g.toString());
+            String f = "Your vertexes: " + verSet.toString() + "\nNumber of vertexes in your graph: " + verSet.size()
+                    + "\nNumber of edges in your graph: " + g.edges().size() + "\n" + g.toString();
+            output.print(f);
             output.close();
-
+            return f;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return true;
     }
 
     public boolean alreadyVertex(String label){      //this is a helper method that checks if its already a vertex
@@ -72,33 +69,33 @@ public class main {
     }
 
     public boolean addNode(String Label){
-        if(alreadyVertex(Label) == true){
+        if(alreadyVertex(Label) == true){           //checks if node is in the list already
             return false;
         }else{
-            g.add(mutNode(Label));
+            g.add(mutNode(Label));                  //adds node to the graph
         }
         return true;
     }
 
     public boolean addNodes(String[] label){
-        for(int i = 0; i<label.length; i++){
+        for(int i = 0; i<label.length; i++){            //checks if nodes are in list already
             if (alreadyVertex(label[i])!=true) {
-                g.add(mutNode(label[i]));
+                g.add(mutNode(label[i]));               //adds all nodes into the graph
             }
         }
         return true;
     }
 
     public boolean addEdge(String srcLabel, String dstLabel){
-        if(alreadyVertex(srcLabel) && alreadyVertex(dstLabel)){
-           g.add(mutNode(srcLabel).addLink(mutNode(dstLabel)));
+        if(alreadyVertex(srcLabel) && alreadyVertex(dstLabel)){     //makes sure both vertexes exist
+           g.add(mutNode(srcLabel).addLink(mutNode(dstLabel)));     //adds your edge
 
         }
         return true;
     }
     public boolean outputDOTGraph(String path){
         try{
-            Graphviz.fromGraph(g).render(Format.DOT).toFile(new File(path));
+            Graphviz.fromGraph(g).render(Format.DOT).toFile(new File(path));   //prints graph in dot file
         } catch (IOException e) {
             e.printStackTrace();
         }
