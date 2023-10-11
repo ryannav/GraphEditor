@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="myTests" time="1.455" tests="14" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="14"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="E:\Programming\intellijprojects\CSE-464-2023-mrnavar2\target\test-classes;E:\Programming\intellijprojects\CSE-464-2023-mrnavar2\target\classes;C:\Users\Ryan\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\Ryan\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Ryan\.m2\repository\guru\nidi\graphviz-java\0.18.1\graphviz-java-0.18.1.jar;C:\Users\Ryan\.m2\repository\org\webjars\npm\viz.js-graphviz-java\2.1.3\viz.js-graphviz-java-2.1.3.jar;C:\Users\Ryan\.m2\repository\guru\nidi\com\kitfox\svgSalamander\1.1.3\svgSalamander-1.1.3.jar;C:\Users\Ryan\.m2\repository\net\arnx\nashorn-promise\0.1.1\nashorn-promise-0.1.1.jar;C:\Users\Ryan\.m2\repository\org\apache\commons\commons-exec\1.3\commons-exec-1.3.jar;C:\Users\Ryan\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\Ryan\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.30\jcl-over-slf4j-1.7.30.jar;C:\Users\Ryan\.m2\repository\org\slf4j\jul-to-slf4j\1.7.30\jul-to-slf4j-1.7.30.jar;C:\Users\Ryan\.m2\repository\guru\nidi\com\eclipsesource\j2v8\j2v8_win32_x86_64\4.6.0\j2v8_win32_x86_64-4.6.0.jar;C:\Users\Ryan\.m2\repository\org\slf4j\slf4j-api\1.7.30\slf4j-api-1.7.30.jar;C:\Users\Ryan\.m2\repository\org\apache\logging\log4j\log4j-core\2.13.0\log4j-core-2.13.0.jar;C:\Users\Ryan\.m2\repository\org\apache\logging\log4j\log4j-api\2.13.0\log4j-api-2.13.0.jar;C:\Users\Ryan\.m2\repository\org\apache\logging\log4j\log4j-slf4j-impl\2.13.0\log4j-slf4j-impl-2.13.0.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="America/Phoenix"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="java.vm.specification.version" value="14"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="E:\JDK\bin"/>
+    <property name="sun.java.command" value="C:\Users\Ryan\AppData\Local\Temp\surefire5638245338268233638\surefirebooter-20231011014211533_3.jar C:\Users\Ryan\AppData\Local\Temp\surefire5638245338268233638 2023-10-11T01-42-11_432-jvmRun1 surefire-20231011014211533_1tmp surefire_0-20231011014211533_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="E:\Programming\intellijprojects\CSE-464-2023-mrnavar2\target\test-classes;E:\Programming\intellijprojects\CSE-464-2023-mrnavar2\target\classes;C:\Users\Ryan\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\Ryan\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Ryan\.m2\repository\guru\nidi\graphviz-java\0.18.1\graphviz-java-0.18.1.jar;C:\Users\Ryan\.m2\repository\org\webjars\npm\viz.js-graphviz-java\2.1.3\viz.js-graphviz-java-2.1.3.jar;C:\Users\Ryan\.m2\repository\guru\nidi\com\kitfox\svgSalamander\1.1.3\svgSalamander-1.1.3.jar;C:\Users\Ryan\.m2\repository\net\arnx\nashorn-promise\0.1.1\nashorn-promise-0.1.1.jar;C:\Users\Ryan\.m2\repository\org\apache\commons\commons-exec\1.3\commons-exec-1.3.jar;C:\Users\Ryan\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\Ryan\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.30\jcl-over-slf4j-1.7.30.jar;C:\Users\Ryan\.m2\repository\org\slf4j\jul-to-slf4j\1.7.30\jul-to-slf4j-1.7.30.jar;C:\Users\Ryan\.m2\repository\guru\nidi\com\eclipsesource\j2v8\j2v8_win32_x86_64\4.6.0\j2v8_win32_x86_64-4.6.0.jar;C:\Users\Ryan\.m2\repository\org\slf4j\slf4j-api\1.7.30\slf4j-api-1.7.30.jar;C:\Users\Ryan\.m2\repository\org\apache\logging\log4j\log4j-core\2.13.0\log4j-core-2.13.0.jar;C:\Users\Ryan\.m2\repository\org\apache\logging\log4j\log4j-api\2.13.0\log4j-api-2.13.0.jar;C:\Users\Ryan\.m2\repository\org\apache\logging\log4j\log4j-slf4j-impl\2.13.0\log4j-slf4j-impl-2.13.0.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\Ryan"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2020-07-14"/>
+    <property name="java.home" value="E:\JDK"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="E:\Programming\intellijprojects\CSE-464-2023-mrnavar2"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\Ryan\AppData\Local\Temp\surefire5638245338268233638\surefirebooter-20231011014211533_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="14.0.2+12-46"/>
+    <property name="user.name" value="Ryan"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\Ryan\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\Ryan\AppData\Local\Temp\"/>
+    <property name="java.version" value="14.0.2"/>
+    <property name="user.dir" value="E:\Programming\intellijprojects\CSE-464-2023-mrnavar2"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="E:\JDK\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Eclipse Adoptium\jdk-17.0.2.8-hotspot\bin;C:\Program Files\Common Files\Oracle\Java\javapath;E:\JDK;C:\Program Files\Oculus\Support\oculus-runtime;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\AdoptOpenJDK\jre-8.0.232.09-hotspot\bin;C:\Program Files\AdoptOpenJDK\jre-11.0.5.10-hotspot\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;E:\bad files\postgres\bin;C:\Program Files\Git\cmd;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;E:\cse240\putty\;E:\bad files\matlab\bin;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\Wolfram Research\WolframScript\;E:\School\cse464\apache-maven-3.9.5\bin;C:\Users\Ryan\AppData\Local\Microsoft\WindowsApps;C:\iverilog\bin;C:\iverilog\gtkwave\bin;C:\Users\Ryan\AppData\Local\Programs\Microsoft VS Code\bin;C:\MinGW\bin;C:\Users\Ryan\.dotnet\tools;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="14.0.2+12-46"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="58.0"/>
+  </properties>
+  <testcase name="testfeature3test2" classname="myTests" time="0.273">
+    <system-out><![CDATA[Your vertexes: [A, B, C, D, F, I]
+Number of vertexes in your graph: 6
+Number of edges in your graph: 6
+digraph "A" {
+"I"
+"A" -> "I"
+"A" -> "C"
+"A" -> "B"
+"C" -> "D"
+"B" -> "C"
+"B" -> "F"
+}
+]]></system-out>
+  </testcase>
+  <testcase name="testfeature4part1" classname="myTests" time="0.019">
+    <system-out><![CDATA[Your vertexes: [A, B, C, D]
+Number of vertexes in your graph: 4
+Number of edges in your graph: 4
+digraph "D" {
+"A" -> "B"
+"A" -> "C"
+"A" -> "D"
+"B" -> "C"
+}
+Your vertexes: [A, B, C, D]
+Number of vertexes in your graph: 4
+Number of edges in your graph: 4
+digraph "D" {
+"A" -> "B"
+"A" -> "C"
+"A" -> "D"
+"B" -> "C"
+}
+]]></system-out>
+  </testcase>
+  <testcase name="testfeature4part2" classname="myTests" time="1.054"/>
+  <testcase name="testFeature4Part2Test2" classname="myTests" time="0.055"/>
+  <testcase name="testfeature4part1test2" classname="myTests" time="0.009">
+    <system-out><![CDATA[Your vertexes: [A, B, C, D, F]
+Number of vertexes in your graph: 5
+Number of edges in your graph: 6
+digraph "A" {
+"A" -> "F"
+"A" -> "C"
+"A" -> "B"
+"C" -> "D"
+"B" -> "C"
+"B" -> "F"
+}
+Your vertexes: [A, B, C, D, F]
+Number of vertexes in your graph: 5
+Number of edges in your graph: 6
+digraph "A" {
+"A" -> "F"
+"A" -> "C"
+"A" -> "B"
+"C" -> "D"
+"B" -> "C"
+"B" -> "F"
+}
+]]></system-out>
+  </testcase>
+  <testcase name="testfeature2pt1test2" classname="myTests" time="0.001">
+    <system-out><![CDATA[Your vertexes: [A, B, C, D, E, F]
+Number of vertexes in your graph: 6
+Number of edges in your graph: 5
+digraph "A" {
+"E"
+"A" -> "C"
+"A" -> "B"
+"C" -> "D"
+"B" -> "C"
+"B" -> "F"
+}
+]]></system-out>
+  </testcase>
+  <testcase name="testfeature2pt2test2" classname="myTests" time="0.001">
+    <system-out><![CDATA[Your vertexes: [A, B, C, D, E, F, G, H, I]
+Number of vertexes in your graph: 9
+Number of edges in your graph: 5
+digraph "A" {
+"E"
+"G"
+"H"
+"I"
+"A" -> "C"
+"A" -> "B"
+"C" -> "D"
+"B" -> "C"
+"B" -> "F"
+}
+]]></system-out>
+  </testcase>
+  <testcase name="testfeatur1pt1test2" classname="myTests" time="0.001">
+    <system-out><![CDATA[Your vertexes: [A, B, C, D, F]
+Number of vertexes in your graph: 5
+Number of edges in your graph: 5
+digraph "A" {
+"A" -> "C"
+"A" -> "B"
+"C" -> "D"
+"B" -> "C"
+"B" -> "F"
+}
+]]></system-out>
+  </testcase>
+  <testcase name="testfeatur1pt2test2" classname="myTests" time="0.0"/>
+  <testcase name="testfeature3" classname="myTests" time="0.001">
+    <system-out><![CDATA[Your vertexes: [A, B, C, D]
+Number of vertexes in your graph: 4
+Number of edges in your graph: 4
+digraph "D" {
+"A" -> "B"
+"A" -> "C"
+"A" -> "D"
+"B" -> "C"
+}
+]]></system-out>
+  </testcase>
+  <testcase name="testfeatur1pt1" classname="myTests" time="0.001">
+    <system-out><![CDATA[Your vertexes: [A, B, C, D]
+Number of vertexes in your graph: 4
+Number of edges in your graph: 3
+digraph "D" {
+"A" -> "B"
+"A" -> "C"
+"A" -> "D"
+}
+]]></system-out>
+  </testcase>
+  <testcase name="testfeatur1pt2" classname="myTests" time="0.0"/>
+  <testcase name="testfeature2pt1" classname="myTests" time="0.001">
+    <system-out><![CDATA[Your vertexes: [A, B, C, D, E]
+Number of vertexes in your graph: 5
+Number of edges in your graph: 3
+digraph "D" {
+"E"
+"A" -> "B"
+"A" -> "C"
+"A" -> "D"
+}
+]]></system-out>
+  </testcase>
+  <testcase name="testfeature2pt2" classname="myTests" time="0.001">
+    <system-out><![CDATA[Your vertexes: [A, B, C, D, E, F, G]
+Number of vertexes in your graph: 7
+Number of edges in your graph: 3
+digraph "D" {
+"E"
+"F"
+"G"
+"A" -> "B"
+"A" -> "C"
+"A" -> "D"
+}
+]]></system-out>
+  </testcase>
+</testsuite>
