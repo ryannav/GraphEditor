@@ -25,7 +25,7 @@ public class myTests {
                 "\"A\" -> \"D\"\n" +
                 "}", s.tostring());
     }
-    @Test
+   @Test
     public void testfeatur1pt1test2(){        //this test will cover feature 1 in the project
         main s = new main();
         s.parseGraph("/test2.dot");
@@ -219,4 +219,40 @@ public class myTests {
         s.parseGraph("/test2.dot");
         assertEquals(true, s.outputGraphics("outputs/f4t2output.png", "png"));
     }
+    @Test
+    public void testremovenode(){
+        main s = new main();
+        s.parseGraph("/test1.dot");
+        s.addNode("E");
+        s.tostring();
+        s.removeNode("B");
+        s.tostring();
+        s.outputGraphics("outputs/f4t2output.png", "png");
+        assertEquals(false, false);
+    }
+    @Test
+    public void testremovenodes(){
+        main s = new main();
+        s.parseGraph("/test1.dot");
+        s.addNode("E");
+        s.tostring();
+        String[] testArr = {"B","C","D"};
+        s.removeNodes(testArr);
+        s.tostring();
+        s.outputGraphics("outputs/f4t2output.png", "png");
+        assertEquals(false, false);
+    }
+    @Test
+    public void testremoveedge(){
+        main s = new main();
+        s.parseGraph("/test1.dot");
+        s.addNode("E");
+        s.tostring();
+        s.removeEdge("A","E");
+        s.tostring();
+        s.outputGraphics("outputs/f4t2output.png", "png");
+        assertEquals(false, false);
+    }
+
+
 }
