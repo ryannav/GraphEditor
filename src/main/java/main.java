@@ -162,7 +162,7 @@ public class main {
             System.out.println("EXCEPTION, Your edge does not exist");
             return false;
         }
-        g=temp;
+        g=temp;//bro why doesnt this stuff work
         return true;
     }
 

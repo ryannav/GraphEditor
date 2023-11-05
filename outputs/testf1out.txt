@@ -1,0 +1,8 @@
+Your vertexes: [A, B, C, D]
+Number of vertexes in your graph: 4
+Number of edges in your graph: 3
+digraph "D" {
+"A" -> "B"
+"A" -> "C"
+"A" -> "D"
+}
