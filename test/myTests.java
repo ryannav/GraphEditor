@@ -263,14 +263,30 @@ public class myTests {
                 "}");
     }
     @Test
+    public void testremoveedgeERROR(){
+        main s = new main();
+        s.parseGraph("/test1.dot");
+        s.addNode("E");
+        s.tostring();
+        assertEquals(s.removeEdge("A","E"), false);     //returning false means the edge doesnt exist and error message was sent
+    }
+    @Test
     public void testremoveedge(){
         main s = new main();
         s.parseGraph("/test1.dot");
         s.addNode("E");
         s.tostring();
-        s.removeEdge("A","E");
+        s.removeEdge("A","B");
         s.tostring();
-        assertEquals(false, false);
+        assertEquals(s.tostring(), "Your vertexes: [A, B, C, D, E]\n" +
+                "Number of vertexes in your graph: 5\n" +
+                "Number of edges in your graph: 2\n" +
+                "digraph \"D\" {\n" +
+                "\"B\"\n" +
+                "\"E\"\n" +
+                "\"A\" -> \"D\"\n" +
+                "\"A\" -> \"C\"\n" +
+                "}");
     }
 @Test
     public void testDFS(){
