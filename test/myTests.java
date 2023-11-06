@@ -295,7 +295,7 @@ public class myTests {
         s.addNode("E");
         s.addEdge("B","E");
         s.GraphSearch(s.getNode("A"),s.getNode("E"), main.Algorithm.DFS);
-        assertEquals("A->B->E", "A->B->E");
+        assertEquals("A->B->E",s.SearchtoString(s.getNode("A"),s.getNode("E"),main.Algorithm.DFS) );
     }
 
     @Test
@@ -304,8 +304,8 @@ public class myTests {
         s.parseGraph("/test1.dot");
         s.addNode("E");
         s.addEdge("B","E");
-        s.GraphSearch(s.getNode("A"),s.getNode("E"), main.Algorithm.BFS);
-        assertEquals("A->B->E", "A->B->E");
+        s.GraphSearch(s.getNode("A"),s.getNode("E"), main.Algorithm.DFS);
+        assertEquals("A->B->E",s.SearchtoString(s.getNode("A"),s.getNode("E"),main.Algorithm.BFS) );
     }
 
 

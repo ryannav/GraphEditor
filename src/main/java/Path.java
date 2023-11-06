@@ -62,7 +62,7 @@ class  Path {
         queue.add(src);
         while (!queue.isEmpty()) {
             int current = queue.poll();
-            if (current == dst) {
+            if (current == dst) {                               //once we reach our destination node
                 StringBuilder path = new StringBuilder();
                 int node = dst;
                 while (node != src) {
@@ -72,9 +72,9 @@ class  Path {
                 path.insert(0, src + " ");
                 return path.toString();
             }
-            for (int neighbor : adj[current]) {
+            for (int neighbor : adj[current]) {     //checks if the neighbors have also been visited yet
                 if (visited[neighbor]==false) {
-                    visited[neighbor] = true;
+                    visited[neighbor] = true;       //if they havent it visits them
                     queue.add(neighbor);
                     parent[neighbor] = current;
                 }

@@ -199,7 +199,7 @@ public class main {
         if(Algo == Algorithm.DFS){
             str = path.DFS(joe.indexOf(src.name().value()), joe.indexOf(dst.name().value()));//runs the BFS from the path class
         }else{
-            str = path.DFS(joe.indexOf(src.name().value()), joe.indexOf(dst.name().value()));//runs the DFS from the path class
+            str = path.BFS(joe.indexOf(src.name().value()), joe.indexOf(dst.name().value()));//runs the DFS from the path class
         }
         String[] array = str.split(" +");
         for(int i=0;i<array.length;i++){                                                        //makes the BFS able to be printed
@@ -213,6 +213,33 @@ public class main {
             return null;
         }
         return path;
+    }
+
+    public String SearchtoString(Node src, Node dst, Algorithm Algo){          //made this function for testing purposes
+        String pathtxt ="";
+        String str = "";
+        ArrayList<String> joe = GetNodeArr();
+        Path path = new Path(joe.size());
+        Multimap<String, String> linkMap = getLinks();
+        for (Map.Entry<String, String> entry : linkMap.entries()) {                 //uses multimap library so it can hold all the links easier(couldnt use a hashmap)
+            path.addEdge(joe.indexOf(entry.getKey()), joe.indexOf(entry.getValue()));//adds all edges to the path
+        }
+        if(Algo == Algorithm.DFS){
+            str = path.DFS(joe.indexOf(src.name().value()), joe.indexOf(dst.name().value()));//runs the BFS from the path class
+        }else{
+            str = path.BFS(joe.indexOf(src.name().value()), joe.indexOf(dst.name().value()));//runs the DFS from the path class
+        }
+        String[] array = str.split(" +");
+        for(int i=0;i<array.length;i++){                                                        //makes the BFS able to be printed
+            pathtxt += joe.get(Integer.parseInt(array[i]));
+            if(i+1 < array.length){
+                pathtxt += "->";
+            }
+        }
+
+        if(!pathtxt.isEmpty()){
+            return(pathtxt);
+        }else{return null;}
     }
 
 
