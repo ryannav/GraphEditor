@@ -235,7 +235,6 @@ public class myTests {
         s.addNode("E");
         s.tostring();
         s.removeNode("B");
-        s.tostring();
         assertEquals(s.tostring(), "Your vertexes: [A, C, D, E]\n" +
                 "Number of vertexes in your graph: 4\n" +
                 "Number of edges in your graph: 2\n" +
@@ -261,7 +260,6 @@ public class myTests {
         s.tostring();
         String[] testArr = {"B","C","D"};
         s.removeNodes(testArr);
-        s.tostring();
         assertEquals(s.tostring(), "Your vertexes: [A, E]\n" +
                 "Number of vertexes in your graph: 2\n" +
                 "Number of edges in your graph: 0\n" +
@@ -297,6 +295,28 @@ public class myTests {
                 "\"A\" -> \"C\"\n" +
                 "}");
     }
+
+    @Test
+    public void testremovenodeandedges(){
+        main s = new main();
+        s.parseGraph("/test1.dot");
+        s.addNode("E");
+        s.addNode("F");
+        s.addEdge("A","F");
+        s.tostring();
+        s.removeNode("B");
+        s.removeNode("E");
+        s.removeEdge("A","C");
+        s.removeEdge("A","F");
+        assertEquals(s.tostring(), "Your vertexes: [A, C, D, F]\n" +
+                "Number of vertexes in your graph: 4\n" +
+                "Number of edges in your graph: 1\n" +
+                "digraph \"D\" {\n" +
+                "\"F\"\n" +
+                "\"C\"\n" +
+                "\"A\" -> \"D\"\n" +
+                "}");
+    }
 @Test
     public void testDFS(){
         main s = new main();
@@ -313,7 +333,7 @@ public class myTests {
         s.parseGraph("/test1.dot");
         s.addNode("E");
         s.addEdge("B","E");
-        s.GraphSearch(s.getNode("A"),s.getNode("E"), main.Algorithm.DFS);
+        s.GraphSearch(s.getNode("A"),s.getNode("E"), main.Algorithm.BFS);
         assertEquals("A->B->E",s.SearchtoString(s.getNode("A"),s.getNode("E"),main.Algorithm.BFS) );
     }
 
