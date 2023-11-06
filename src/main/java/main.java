@@ -8,13 +8,14 @@ import guru.nidi.graphviz.engine.Format;
 import guru.nidi.graphviz.engine.Graphviz;
 import guru.nidi.graphviz.model.*;
 import guru.nidi.graphviz.parse.Parser;
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Multimap;
 
 import java.io.*;
 import java.lang.reflect.Array;
 import java.util.*;
 
-import static guru.nidi.graphviz.model.Factory.mutGraph;
-import static guru.nidi.graphviz.model.Factory.mutNode;
+import static guru.nidi.graphviz.model.Factory.*;
 
 public class main {
 
@@ -139,7 +140,7 @@ public class main {
         return true;
     }
 
-    public boolean removeNodes(String[] label){
+    public boolean removeNodes(String[] label){             //calls removenode function to remove multiple nodes
         for(int i=0;i<label.length;i++){
             removeNode(label[i]);
         }
@@ -164,6 +165,45 @@ public class main {
         }
         g=temp;//bro why doesnt this stuff work
         return true;
+    }
+    public Node getNode(String label){                                  //returns node you select
+        return node(label);
+    }
+    public ArrayList<String> GetNodeArr(){                                  //makes array of all node names so it can assign an int to them
+        ArrayList<String> nodes = new ArrayList<>();
+        g.nodes().forEach(Node -> nodes.add(Node.name().value()));
+        return nodes;
+    }
+    public Multimap getLinks(){
+        Multimap<String, String> linkMap = ArrayListMultimap.create();          //gets all the links and adds them to a linkMap
+        g.edges().forEach(Link -> {
+            String fromex = Link.from().toString().split("\\{",2)[0];
+            String toex = Link.to().toString().split("\\:",2)[0];
+            linkMap.put(fromex, toex);
+        });
+        return linkMap;
+    }
+    public Path GraphSearch(Node src, Node dst){
+        String pathtxt ="";
+        ArrayList<String> joe = GetNodeArr();
+        Path path = new Path(joe.size());
+        Multimap<String, String> linkMap = getLinks();
+        for (Map.Entry<String, String> entry : linkMap.entries()) {                 //uses multimap library so it can hold all the links easier(couldnt use a hashmap)
+            path.addEdge(joe.indexOf(entry.getKey()), joe.indexOf(entry.getValue()));//adds all edges to the path
+        }
+        String str = path.BFS(joe.indexOf(src.name().value()), joe.indexOf(dst.name().value()));//runs the BFS from the path class
+        String[] array = str.split(" +");
+        for(int i=0;i<array.length;i++){                                                        //makes the BFS able to be printed
+            pathtxt += joe.get(Integer.parseInt(array[i]));
+            if(i+1 < array.length){
+                pathtxt += "->";
+            }
+        }
+        System.out.println(pathtxt);
+        if(pathtxt.isEmpty()){
+            return null;
+        }
+        return path;
     }
 
 
