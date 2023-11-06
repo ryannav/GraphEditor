@@ -246,6 +246,14 @@ public class myTests {
                 "}");
     }
     @Test
+    public void testremovenodeError(){
+        main s = new main();
+        s.parseGraph("/test1.dot");
+        s.addNode("E");
+        s.tostring();
+        assertEquals(s.removeNode("F"),false);//false means it sends error code
+    }
+    @Test
     public void testremovenodes(){
         main s = new main();
         s.parseGraph("/test1.dot");
@@ -262,6 +270,7 @@ public class myTests {
                 "\"E\"\n" +
                 "}");
     }
+
     @Test
     public void testremoveedgeERROR(){
         main s = new main();

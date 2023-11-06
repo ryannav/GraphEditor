@@ -2,8 +2,6 @@
 
 
 
-import guru.nidi.graphviz.attribute.Color;
-import guru.nidi.graphviz.attribute.Style;
 import guru.nidi.graphviz.engine.Format;
 import guru.nidi.graphviz.engine.Graphviz;
 import guru.nidi.graphviz.model.*;
@@ -12,8 +10,8 @@ import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import static guru.nidi.graphviz.model.Factory.*;
 
@@ -115,7 +113,18 @@ public class main {
         }
         return true;
     }
+
+    public ArrayList<String> GetNodeArr(){                                  //makes array of all node names so it can assign an int to them
+        ArrayList<String> nodes = new ArrayList<>();
+        g.nodes().forEach(Node -> nodes.add(Node.name().value()));
+        return nodes;
+    }
     public boolean removeNode(String label){
+        ArrayList<String> mynodes = GetNodeArr();
+        if(!mynodes.contains(label)){
+            System.out.println("Error, node does not exist");
+            return false;
+        }
         MutableGraph temp = mutGraph("D").setDirected(true);            //new graph to replace the old one
         g.edges().forEach(Link -> {                                           //gets all edge details so we can move them to new graph
             String fromex = Link.from().toString().split("\\{",2)[0];
@@ -132,10 +141,7 @@ public class main {
             }
 
         });
-        if(g.nodes().size() == temp.nodes().size()){
-            System.out.println("EXCEPTION, the node you want to delete does not exist");
-            return false;
-        }
+
         g=temp;
         return true;
     }
@@ -169,11 +175,7 @@ public class main {
     public Node getNode(String label){                                  //returns node you select
         return node(label);
     }
-    public ArrayList<String> GetNodeArr(){                                  //makes array of all node names so it can assign an int to them
-        ArrayList<String> nodes = new ArrayList<>();
-        g.nodes().forEach(Node -> nodes.add(Node.name().value()));
-        return nodes;
-    }
+
     public Multimap getLinks(){
         Multimap<String, String> linkMap = ArrayListMultimap.create();          //gets all the links and adds them to a linkMap
         g.edges().forEach(Link -> {
