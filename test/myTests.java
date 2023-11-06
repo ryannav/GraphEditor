@@ -263,12 +263,22 @@ public class myTests {
         assertEquals(false, false);
     }
 @Test
-    public void testtest(){
+    public void testDFS(){
         main s = new main();
         s.parseGraph("/test1.dot");
         s.addNode("E");
         s.addEdge("B","E");
-        s.GraphSearch(s.getNode("A"),s.getNode("E"));
+        s.GraphSearch(s.getNode("A"),s.getNode("E"), main.Algorithm.DFS);
+        assertEquals("A->B->E", "A->B->E");
+    }
+
+    @Test
+    public void testBFS(){
+        main s = new main();
+        s.parseGraph("/test1.dot");
+        s.addNode("E");
+        s.addEdge("B","E");
+        s.GraphSearch(s.getNode("A"),s.getNode("E"), main.Algorithm.BFS);
         assertEquals("A->B->E", "A->B->E");
     }
 
