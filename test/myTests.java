@@ -236,8 +236,14 @@ public class myTests {
         s.tostring();
         s.removeNode("B");
         s.tostring();
-        s.outputGraphics("outputs/f4t2output.png", "png");
-        assertEquals(false, false);
+        assertEquals(s.tostring(), "Your vertexes: [A, C, D, E]\n" +
+                "Number of vertexes in your graph: 4\n" +
+                "Number of edges in your graph: 2\n" +
+                "digraph \"D\" {\n" +
+                "\"E\"\n" +
+                "\"A\" -> \"D\"\n" +
+                "\"A\" -> \"C\"\n" +
+                "}");
     }
     @Test
     public void testremovenodes(){
@@ -248,8 +254,13 @@ public class myTests {
         String[] testArr = {"B","C","D"};
         s.removeNodes(testArr);
         s.tostring();
-        s.outputGraphics("outputs/f4t2output.png", "png");
-        assertEquals(false, false);
+        assertEquals(s.tostring(), "Your vertexes: [A, E]\n" +
+                "Number of vertexes in your graph: 2\n" +
+                "Number of edges in your graph: 0\n" +
+                "digraph \"D\" {\n" +
+                "\"A\"\n" +
+                "\"E\"\n" +
+                "}");
     }
     @Test
     public void testremoveedge(){
@@ -259,7 +270,6 @@ public class myTests {
         s.tostring();
         s.removeEdge("A","E");
         s.tostring();
-        s.outputGraphics("outputs/f4t2output.png", "png");
         assertEquals(false, false);
     }
 @Test
