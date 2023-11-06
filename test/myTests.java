@@ -1,9 +1,11 @@
+import guru.nidi.graphviz.model.MutableNode;
 import org.junit.Test;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 import static org.slf4j.ILoggerFactory.*;
 import static org.junit.Assert.assertThat;
@@ -259,6 +261,15 @@ public class myTests {
         s.tostring();
         s.outputGraphics("outputs/f4t2output.png", "png");
         assertEquals(false, false);
+    }
+@Test
+    public void testtest(){
+        main s = new main();
+        s.parseGraph("/test1.dot");
+        s.addNode("E");
+        s.addEdge("B","E");
+        s.GraphSearch(s.getNode("A"),s.getNode("E"));
+        assertEquals("A->B->E", "A->B->E");
     }
 
 
