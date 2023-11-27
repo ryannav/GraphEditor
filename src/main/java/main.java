@@ -210,6 +210,7 @@ public class main {
                 pathtxt += "->";
             }
         }
+        //need to refactor this part of the code and use design choices
         System.out.println(pathtxt);
         if(pathtxt.isEmpty()){
             return null;
@@ -238,7 +239,7 @@ public class main {
                 pathtxt += "->";
             }
         }
-
+        //need to refactor this part of the code
         if(!pathtxt.isEmpty()){
             return(pathtxt);
         }else{return null;}
