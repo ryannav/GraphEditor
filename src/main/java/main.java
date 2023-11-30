@@ -119,10 +119,15 @@ public class main {
         g.nodes().forEach(Node -> nodes.add(Node.name().value()));
         return nodes;
     }
+    public boolean checkNodes(ArrayList<String> nodesList, String label){     //this is my first refactoring, extraction for better readability
+        if(!nodesList.contains(label)){
+            System.out.println("Error, node does not exist");
+            return false;
+        }else{return true;}
+    }
     public boolean removeNode(String label){
         ArrayList<String> mynodes = GetNodeArr();
-        if(!mynodes.contains(label)){
-            System.out.println("Error, node does not exist");
+        if(!checkNodes(mynodes,label)){
             return false;
         }
         MutableGraph temp = mutGraph("D").setDirected(true);            //new graph to replace the old one
@@ -154,14 +159,14 @@ public class main {
     }
     public boolean removeEdge(String srcLabel, String dstLabel){
         MutableGraph temp = mutGraph("D").setDirected(true);
-        g.edges().forEach(Link -> {                                           //gets all edge details so we can move them to new graph
-            String fromex = Link.from().toString().split("\\{",2)[0];
-            String toex = Link.to().toString().split("\\:",2)[0];
+            g.edges().forEach(Link -> {                                           //gets all edge details so we can move them to new graph
+                String fromex = Link.from().toString().split("\\{",2)[0];
+                String toex = Link.to().toString().split("\\:",2)[0];
 
-            if(!fromex.equals(srcLabel)  || !toex.equals(dstLabel) ){       //makes sure src and dst label match for the node
-                temp.add(mutNode(fromex).addLink(mutNode(toex)));     //adds your edge
-            }
-        });
+                if(!fromex.equals(srcLabel)  || !toex.equals(dstLabel) ){       //makes sure src and dst label match for the node
+                    temp.add(mutNode(fromex).addLink(mutNode(toex)));     //adds your edge
+                }
+            });
         g.nodes().forEach(node -> {
                 temp.add(mutNode(node.name().value()));                 //adds any new nodes back
         });
