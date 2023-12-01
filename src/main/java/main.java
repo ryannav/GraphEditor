@@ -105,7 +105,7 @@ public class main {
         return true;
     }
     public boolean outputGraphics(String path, String format){
-        if(format == "png" || format == "PNG" || format ==".png" || format == ".PNG"){
+        if(format.equalsIgnoreCase(".png") || format.equalsIgnoreCase("png")){         //fourth refactor
             try{
                 Graphviz.fromGraph(g).render(Format.PNG).toFile(new File(path));   //this saves the file to the png
             } catch (IOException e) {
