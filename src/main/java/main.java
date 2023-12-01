@@ -28,16 +28,21 @@ public class main {
         }
         return true;
     }
-
-    public String tostring(){
-        String verts = "";
-        List<String> list = new ArrayList<String> ();    //puts vertex names into a list then a hashset
-        g.nodes().forEach(node -> list.add(node.name().toString()));
+    public String outputStr(List<String> list){
         Set<String> verSet = new HashSet<>(list);
         list.clear();
         list.addAll(verSet);
         String f = "Your vertexes: " + verSet.toString() + "\nNumber of vertexes in your graph: " + verSet.size()
                 + "\nNumber of edges in your graph: " + g.edges().size() + "\n" + g.toString();
+        return f;
+    }
+    public String tostring(){
+        String verts = "";
+        List<String> list = new ArrayList<String> ();    //puts vertex names into a list then a hashset
+        g.nodes().forEach(node -> list.add(node.name().toString()));
+        Set<String> verSet = new HashSet<>(list);
+        //third refactor removed code and extracted
+        String f = outputStr(list);
         System.out.println(f);
         return f;
     }
@@ -49,11 +54,8 @@ public class main {
             String verts = "";
             List<String> list = new ArrayList<String> ();    //puts vertex names into a list then a hashset
             g.nodes().forEach(node -> list.add(node.name().toString()));
-            Set<String> verSet = new HashSet<>(list);
-            list.clear();
-            list.addAll(verSet);
-            String f = "Your vertexes: " + verSet.toString() + "\nNumber of vertexes in your graph: " + verSet.size()
-                    + "\nNumber of edges in your graph: " + g.edges().size() + "\n" + g.toString();
+            //third refactor
+            String f = outputStr(list);
             output.print(f);
             output.close();
             return f;
