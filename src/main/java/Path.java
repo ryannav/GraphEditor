@@ -22,65 +22,15 @@ class  Path {
     }
 
     String DFS(int src, int dst) {
-        boolean visited[] = new boolean[node];          //if the node has been visited or not
-        int parent[] = new int[node];
-        LinkedList<Integer> stack = new LinkedList<Integer>();
-        visited[src] = true;
-        stack.push(src);
 
-        while (!stack.isEmpty()) {
-            int current = stack.pop();
-
-            if (current == dst) {                               //if we have reached the destination node
-                StringBuilder path = new StringBuilder();
-                int node = dst;
-                while (node != src) {                               //gets the path straight from destination to the source
-                    path.insert(0, node + " ");
-                    node = parent[node];
-                }
-                path.insert(0, src + " ");
-                return path.toString();
-            }
-
-            for (int neighbor : adj[current]) {
-                if (!visited[neighbor]) {       //checks neighbors for if they have been visited
-                    visited[neighbor] = true;      //if not it visits them
-                    stack.push(neighbor);
-                    parent[neighbor] = current;
-                }
-            }
-        }
-
-        return "Error, try a different path";
+        DFSearch df = new DFSearch();
+        return df.Search(src,dst,node,adj);
     }
     String BFS(int src, int dst)
     {
-        boolean visited[] = new boolean[node];             //if the node has been visited or note
-        int parent[] = new int[node];                      //parent of the current node
-        LinkedList<Integer> queue = new LinkedList<Integer>();
-        visited[src] = true;                            //adds our src node to parse from there
-        queue.add(src);
-        while (!queue.isEmpty()) {
-            int current = queue.poll();
-            if (current == dst) {                               //once we reach our destination node
-                StringBuilder path = new StringBuilder();
-                int node = dst;
-                while (node != src) {
-                    path.insert(0, node + " ");
-                    node = parent[node];
-                }
-                path.insert(0, src + " ");
-                return path.toString();
-            }
-            for (int neighbor : adj[current]) {     //checks if the neighbors have also been visited yet
-                if (visited[neighbor]==false) {
-                    visited[neighbor] = true;       //if they havent it visits them
-                    queue.add(neighbor);
-                    parent[neighbor] = current;
-                }
-            }
-        }
-        return "Error, try a different path";
+
+        BFSearch bf = new BFSearch();
+        return bf.Search(src,dst,node,adj);
 
     }
 
