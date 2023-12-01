@@ -1,7 +1,11 @@
 digraph A{
-A -> C
-C -> D
-A -> B
-B -> C
-B -> F
+a -> b
+b -> c
+c -> d
+d -> a
+a -> e
+e -> f
+e -> g
+f -> h
+g -> h
 }
