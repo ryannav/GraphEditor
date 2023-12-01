@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 
-public class BFSearch extends SearchTemplate{
+public class BFSearch extends SearchTemplate implements SearchStrategy{
     public Boolean visit(LinkedList<Integer> stack, int neighbor){
         stack.add(neighbor);
         return true;

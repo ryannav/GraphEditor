@@ -10,6 +10,7 @@ import java.util.List;
 class  Path {
     public int node;
     public LinkedList<Integer> adj[];           //linked list of adjascent nodes
+    SearchContext searchContext = new SearchContext();
     public Path(int size)                       //constructor for path
     {
         node = size;
@@ -22,16 +23,13 @@ class  Path {
     }
 
     String DFS(int src, int dst) {
-
-        DFSearch df = new DFSearch();
-        return df.Search(src,dst,node,adj);
+        searchContext.setSearchStrategy(new DFSearch());                //design strategy, called from enum
+        return searchContext.performSearch(src,dst,node,adj);
     }
     String BFS(int src, int dst)
     {
-
-        BFSearch bf = new BFSearch();
-        return bf.Search(src,dst,node,adj);
-
+        searchContext.setSearchStrategy(new BFSearch());                //design strategy, called from enum
+        return searchContext.performSearch(src,dst,node,adj);
     }
 
 }

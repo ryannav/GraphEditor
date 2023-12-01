@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 
-public class DFSearch extends SearchTemplate {
+public class DFSearch extends SearchTemplate implements SearchStrategy {
     public Boolean visit(LinkedList<Integer> myList, int neighbor){
         myList.push(neighbor);
         return true;
