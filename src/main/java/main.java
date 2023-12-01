@@ -229,6 +229,37 @@ public class main {
         return path;
     }
 
+    public Path randomWalkSearch(Node src){
+        String pathtxt ="";
+        String str = "";
+        ArrayList<String> graphArr = GetNodeArr();          //second refactoring in this method to change the arraylist to a better name
+        Path path = new Path(graphArr.size());
+        Multimap<String, String> linkMap = getLinks();
+        for (Map.Entry<String, String> entry : linkMap.entries()) {                 //uses multimap library so it can hold all the links easier(couldnt use a hashmap)
+            path.addEdge(graphArr.indexOf(entry.getKey()), graphArr.indexOf(entry.getValue()));//adds all edges to the path
+        }
+        str = path.randWalk(graphArr.indexOf(src.name().value()));
+        System.out.println(str);
+        String[] array = str.split(" +");
+        for(int i=0;i<array.length;i++){    //makes the BFS able to be printed
+            if(i == 0){
+                pathtxt += graphArr.get(Integer.parseInt(array[i]));
+                pathtxt += "->";
+            } else if(i >= 1){
+                if(!array[i].equals(array[i-1])){
+                pathtxt += graphArr.get(Integer.parseInt(array[i]));
+                if(i+1 < array.length){
+                    pathtxt += "->";
+                }}
+            }
+        }
+        System.out.println(pathtxt);
+        if(pathtxt.isEmpty()){
+            return null;
+        }
+        return path;
+    }
+
     public String SearchtoString(Node src, Node dst, Algorithm Algo){          //made this function for testing purposes
         String pathtxt ="";
         String str = "";

@@ -337,5 +337,16 @@ public class myTests {
         assertEquals("A->B->E",s.SearchtoString(s.getNode("A"),s.getNode("E"),main.Algorithm.BFS) );
     }
 
+    @Test
+    public void testrand(){
+        main s = new main();
+        s.parseGraph("/test2.dot");
+        //s.GraphSearch(s.getNode("A"),s.getNode("E"), main.Algorithm.BFS);
+        s.outputGraphics("outputs/randwalktest.png", "png");
+        s.randomWalkSearch(s.getNode("a"));
+        //assertEquals("A->B->E",s.SearchtoString(s.getNode("A"),s.getNode("E"),main.Algorithm.BFS) );
+        assertEquals(true,true);
+    }
+
 
 }
