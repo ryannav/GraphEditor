@@ -159,6 +159,13 @@ public class main {
         }
         return true;
     }
+
+    public boolean checkEdge(MutableGraph g, MutableGraph temp){        //fifth refactor
+        if(g.edges().size() == temp.edges().size()){
+            System.out.println("EXCEPTION, Your edge does not exist");
+            return false;
+        }else{return true;}
+    }
     public boolean removeEdge(String srcLabel, String dstLabel){
         MutableGraph temp = mutGraph("D").setDirected(true);
             g.edges().forEach(Link -> {                                           //gets all edge details so we can move them to new graph
@@ -172,10 +179,7 @@ public class main {
         g.nodes().forEach(node -> {
                 temp.add(mutNode(node.name().value()));                 //adds any new nodes back
         });
-        if(g.edges().size() == temp.edges().size()){
-            System.out.println("EXCEPTION, Your edge does not exist");
-            return false;
-        }
+        if(!checkEdge(g,temp)){ return false;}          //fifth refactor
         g=temp;//bro why doesnt this stuff work
         return true;
     }
