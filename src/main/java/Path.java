@@ -15,6 +15,7 @@ class  Path {
         for (int i = 0; i < size; ++i)
             adj[i] = new LinkedList();
     }
+
     public void addEdge(int v, int w) {
         adj[v].add(w);
     }
@@ -50,7 +51,6 @@ class  Path {
                     node = parent[node];
                 }
                 path.insert(0, src + " ");
-                System.out.println(path.toString());
                 String s = path.toString();
                 if (adj[randomNeighbor].size() > 0) {
                     s += randWalk(randomNeighbor); // Recursively call randWalk with the new node

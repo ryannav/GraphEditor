@@ -18,7 +18,6 @@ import static guru.nidi.graphviz.model.Factory.*;
 public class main {
 
     public MutableGraph g;
-
     public boolean parseGraph(String filepath){         //this parses the input file graph
         try (InputStream dot = getClass().getResourceAsStream(filepath)) {
             g = new Parser().read(dot).setDirected(true);          //imports the graph from the file
@@ -239,7 +238,6 @@ public class main {
             path.addEdge(graphArr.indexOf(entry.getKey()), graphArr.indexOf(entry.getValue()));//adds all edges to the path
         }
         str = path.randWalk(graphArr.indexOf(src.name().value()));
-        System.out.println(str);
         String[] array = str.split(" +");
         for(int i=0;i<array.length;i++){    //makes the BFS able to be printed
             if(i == 0){
