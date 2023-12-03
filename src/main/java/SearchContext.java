@@ -9,6 +9,6 @@ public class SearchContext {
     }
 
     public String performSearch(int src, int dst, int node, LinkedList<Integer> adj[]) {
-        return SearchStrategy.Search(src,dst,node,adj);
+        return SearchStrategy.Search(src,dst,node,adj);     //sets nad runs search strategy
     }
 }

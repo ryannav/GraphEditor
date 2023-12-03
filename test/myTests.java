@@ -338,13 +338,29 @@ public class myTests {
     }
 
     @Test
+    public void testSearch(){
+        main s = new main();
+        s.parseGraph("/test3.dot");
+        s.GraphSearch(s.getNode("a"),s.getNode("h"), main.Algorithm.BFS);
+        assertEquals("a->e->f->h",s.SearchtoString(s.getNode("a"),s.getNode("h"),main.Algorithm.BFS) );
+    }
+
+    @Test
     public void testrand(){
         main s = new main();
         s.parseGraph("/test3.dot");
-        //s.GraphSearch(s.getNode("A"),s.getNode("E"), main.Algorithm.BFS);
         s.outputGraphics("outputs/randwalktest.png", "png");
-        assertEquals(s.randomWalkSearch(s.getNode("a")).toString().isBlank(), false);
-        //assertEquals("A->B->E",s.SearchtoString(s.getNode("A"),s.getNode("E"),main.Algorithm.BFS) );
+        String walk = s.randomWalkSearch(s.getNode("a"), s.getNode("h")).toString();
+        assertEquals(walk.isBlank(), false);    //checks that we get a path
+    }
+
+    @Test
+    public void testrandextra(){
+        main s = new main();
+        s.parseGraph("/test2.dot");
+        s.outputGraphics("outputs/randwalktestextra.png", "png");
+        assertEquals(s.randomWalkSearch(s.getNode("A"), s.getNode("B")).toString().isBlank(), false);
+
     }
 
 
