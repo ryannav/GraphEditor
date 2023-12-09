@@ -31,7 +31,7 @@ public class myTests {
     public void testfeatur1pt1test2(){        //this test will cover feature 1 in the project
         main s = new main();
         s.parseGraph("/test2.dot");
-        /*assertEquals("Your vertexes: [A, B, C, D, F]\n" +
+        assertEquals("Your vertexes: [A, B, C, D, F]\n" +
                 "Number of vertexes in your graph: 5\n" +
                 "Number of edges in your graph: 5\n" +
                 "digraph \"A\" {\n" +
@@ -40,7 +40,7 @@ public class myTests {
                 "\"C\" -> \"D\"\n" +
                 "\"B\" -> \"C\"\n" +
                 "\"B\" -> \"F\"\n" +
-                "}", s.tostring());*/
+                "}", s.tostring());
        assertEquals(true,true);
     }
 
@@ -64,7 +64,7 @@ public class myTests {
         s.parseGraph("/test2.dot");
         try{
             String exStr = Files.readString(Paths.get("expectedOut/f1p2t2expected.txt"));
-            //assertEquals(exStr.replaceAll("\n", "").replaceAll("\r", ""), s.outputGraph("outputs/testf1pt2out.txt").replaceAll("\n", "").replaceAll("\r", ""));
+            assertEquals(exStr.replaceAll("\n", "").replaceAll("\r", ""), s.outputGraph("outputs/testf1pt2out.txt").replaceAll("\n", "").replaceAll("\r", ""));
             //added replace all to text because it would fail the test due to "line seperators" between the two despite being the same so I touched the strngs up for the test ( they are the same either way)
         } catch (IOException e) {
             e.printStackTrace();
@@ -95,7 +95,7 @@ public class myTests {
         main s = new main();
         s.parseGraph("/test2.dot");
         s.addNode("E");
-        /*assertEquals(s.tostring(), "Your vertexes: [A, B, C, D, E, F]\n" +
+        assertEquals(s.tostring(), "Your vertexes: [A, B, C, D, E, F]\n" +
                 "Number of vertexes in your graph: 6\n" +
                 "Number of edges in your graph: 5\n" +
                 "digraph \"A\" {\n" +
@@ -105,7 +105,7 @@ public class myTests {
                 "\"C\" -> \"D\"\n" +
                 "\"B\" -> \"C\"\n" +
                 "\"B\" -> \"F\"\n" +
-                "}");*/
+                "}");
         assertEquals(true,true);
     }
     @Test
@@ -132,7 +132,7 @@ public class myTests {
         s.parseGraph("/test2.dot");
         String[] j = {"E","G","H","I"};
         s.addNodes(j);
-        /*assertEquals(s.tostring(), "Your vertexes: [A, B, C, D, E, F, G, H, I]\n" +
+        assertEquals(s.tostring(), "Your vertexes: [A, B, C, D, E, F, G, H, I]\n" +
                 "Number of vertexes in your graph: 9\n" +
                 "Number of edges in your graph: 5\n" +
                 "digraph \"A\" {\n" +
@@ -145,7 +145,7 @@ public class myTests {
                 "\"C\" -> \"D\"\n" +
                 "\"B\" -> \"C\"\n" +
                 "\"B\" -> \"F\"\n" +
-                "}");*/
+                "}");
         assertEquals(true,true);
     }
 
@@ -172,7 +172,7 @@ public class myTests {
         s.parseGraph("/test2.dot");
         s.addNode("I");
         s.addEdge("A","I");
-        /*assertEquals(s.tostring(), "Your vertexes: [A, B, C, D, F, I]\n" +
+        assertEquals(s.tostring(), "Your vertexes: [A, B, C, D, F, I]\n" +
                 "Number of vertexes in your graph: 6\n" +
                 "Number of edges in your graph: 6\n" +
                 "digraph \"A\" {\n" +
@@ -183,7 +183,7 @@ public class myTests {
                 "\"C\" -> \"D\"\n" +
                 "\"B\" -> \"C\"\n" +
                 "\"B\" -> \"F\"\n" +
-                "}");*/
+                "}");
         assertEquals(true,true);
     }
 
@@ -198,7 +198,7 @@ public class myTests {
         String str = s.tostring();
         main p = new main();
         p.parseGraph("expectedDot.dot");
-        //assertEquals(p.tostring(),str);
+        assertEquals(p.tostring(),str);
         assertEquals(true,true);
     }
 
@@ -211,7 +211,7 @@ public class myTests {
         String str = s.tostring();
         main p = new main();
         p.parseGraph("f4expectedDot2.dot");
-        //assertEquals(p.tostring(),str);
+        assertEquals(p.tostring(),str);
         assertEquals(true,true);
     }
     @Test
@@ -335,6 +335,32 @@ public class myTests {
         s.addEdge("B","E");
         s.GraphSearch(s.getNode("A"),s.getNode("E"), main.Algorithm.BFS);
         assertEquals("A->B->E",s.SearchtoString(s.getNode("A"),s.getNode("E"),main.Algorithm.BFS) );
+    }
+
+    @Test
+    public void testSearch(){
+        main s = new main();
+        s.parseGraph("/test3.dot");
+        s.GraphSearch(s.getNode("a"),s.getNode("h"), main.Algorithm.BFS);
+        assertEquals("a->e->f->h",s.SearchtoString(s.getNode("a"),s.getNode("h"),main.Algorithm.BFS) );
+    }
+
+    @Test
+    public void testrand(){
+        main s = new main();
+        s.parseGraph("/test3.dot");
+        s.outputGraphics("outputs/randwalktest.png", "png");
+        String walk = s.randomWalkSearch(s.getNode("a"), s.getNode("h")).toString();
+        assertEquals(walk.isBlank(), false);    //checks that we get a path
+    }
+
+    @Test
+    public void testrandextra(){
+        main s = new main();
+        s.parseGraph("/test2.dot");
+        s.outputGraphics("outputs/randwalktestextra.png", "png");
+        assertEquals(s.randomWalkSearch(s.getNode("A"), s.getNode("B")).toString().isBlank(), false);
+
     }
 
 
